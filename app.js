@@ -48,7 +48,7 @@ client.on(Events.InteractionCreate, async interaction => {
     }
 
 
-    // Le try and catch permet de gerer les cas de l'erreur.
+    // Le try and catch permet de gerer les cas d'erreur.
     try {
         await command.execute(interaction);
     } catch (error) {
