@@ -2,6 +2,8 @@ const fs = require('node:fs');
 const path = require('node:path');
 // // REST est un module qui vous permet de faire facilement des requêtes REST à l'API Discord.
 const {REST, Routes} = require('discord.js');
+const {config} = require('dotenv')
+config();
 const token = process.env.DISCORD_TOKEN
 const clientId = process.env.DISCORD_CLIENTID
 
