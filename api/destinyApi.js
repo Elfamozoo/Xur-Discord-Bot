@@ -8,14 +8,17 @@ const destinationDefinitionFrEndpoint = "https://www.bungie.net/common/destiny2_
 
 
 // Avec Axios je fetch uniquement les informations qui m'intéresse du Json ici les infos de Xur.
+// Ensuite je recupere le hash de la localisation que j'utilise pour fetch les informations de la dite localisation.
+// Enfin je recupere le nom de la location via le 2eme appel api.
 run = async () => {
     try {
         const vendorsResponse = await axios.get(vendorsDefinitionFrEndpoint)
         const xurInfos = vendorsResponse.data['2190858386']
         const locationHash = xurInfos.locations[0].destinationHash
+
         const destinationResponse = await axios.get(destinationDefinitionFrEndpoint)
         const xurLocation =  destinationResponse.data[locationHash]
-        console.log(xurLocation)
+        const locationName = xurLocation.displayProperties.description
     } catch (e) {
         console.log(e)
     }
