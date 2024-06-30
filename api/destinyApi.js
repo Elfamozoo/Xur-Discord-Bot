@@ -10,10 +10,12 @@ const destinationDefinitionFrEndpoint = "https://www.bungie.net/common/destiny2_
 // Avec Axios je fetch uniquement les informations qui m'intéresse du Json ici les infos de Xur.
 run = async () => {
     try {
-        const response = await axios.get(vendorsDefinitionFrEndpoint)
-        const xurInfos = response.data['2190858386']
-        const locationXur = xurInfos.locations
-        cons
+        const vendorsResponse = await axios.get(vendorsDefinitionFrEndpoint)
+        const xurInfos = vendorsResponse.data['2190858386']
+        const locationHash = xurInfos.locations[0].destinationHash
+        const destinationResponse = await axios.get(destinationDefinitionFrEndpoint)
+        const xurLocation =  destinationResponse.data[locationHash]
+        console.log(xurLocation)
     } catch (e) {
         console.log(e)
     }
