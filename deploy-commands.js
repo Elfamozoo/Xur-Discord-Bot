@@ -53,4 +53,5 @@ const rest = new REST().setToken(token);
     } catch (error) {
         console.error(error);
     }
-})();
+})
+();
