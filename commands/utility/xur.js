@@ -5,6 +5,6 @@ module.exports = {
         .setName('xur')
         .setDescription('Information sur la localisation de Xur.'),
     async execute(interaction) {
-
+        
     }
 }
